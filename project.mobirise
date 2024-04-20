@@ -1,0 +1,792 @@
+{
+  "settings": {
+    "name": "Percobaan 3",
+    "currentPage": "index.html",
+    "theme": {
+      "name": "startm5",
+      "title": "StartM5",
+      "titlePreset": "StartM5",
+      "styling": {
+        "primaryColor": "#ffa600",
+        "secondaryColor": "#ffd7ef",
+        "successColor": "#3a341c",
+        "infoColor": "#320707",
+        "warningColor": "#a0e2e1",
+        "dangerColor": "#ffea64",
+        "mainFont": "Inter Tight",
+        "display1Font": "Inter Tight",
+        "display1Size": 5,
+        "display2Font": "Inter Tight",
+        "display2Size": 4,
+        "display5Font": "Inter Tight",
+        "display5Size": 2.5,
+        "display7Font": "Inter Tight",
+        "display7Size": 1.4,
+        "display4Font": "Inter Tight",
+        "display4Size": 1.2,
+        "isRoundedImages": true,
+        "isRoundedButtons": true,
+        "isLargeButtons": true,
+        "isGhostButtonBorder": true,
+        "underlinedLinks": true,
+        "isAnimatedOnScroll": true,
+        "isScrollToTopButton": true
+      },
+      "additionalSetColors": [
+        "#ededed"
+      ]
+    },
+    "path": "@PROJECT_PATH@",
+    "versionFirst": "5.9.6",
+    "siteFonts": [
+      {
+        "css": "'Inter Tight', sans-serif",
+        "name": "Inter Tight",
+        "url": "https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i"
+      }
+    ],
+    "uniqCompNum": 23,
+    "versionPublish": "5.9.6",
+    "imageResize": true,
+    "screenshot": "screenshot.png",
+    "favicon": false,
+    "mbrsiteDomain": "struktur-artikel",
+    "usedWebp": false,
+    "robotsSwitcher": false,
+    "sitemapSwitcher": false,
+    "sitemapSwitcherAuto": false,
+    "siteUrl": false,
+    "cookiesAlert": false,
+    "gdpr": false
+  },
+  "pages": {
+    "index.html": {
+      "settings": {
+        "main": true,
+        "title": "Home",
+        "meta_descr": "",
+        "header_custom": "",
+        "footer_custom": "",
+        "html_before": ""
+      },
+      "components": [
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".mbr-fallback-image.disabled": {
+              "display": "none"
+            },
+            ".mbr-fallback-image": {
+              "display": "block",
+              "background-size": "cover",
+              "background-position": "center center",
+              "width": "100%",
+              "height": "100%",
+              "position": "absolute",
+              "top": "0",
+              "& when (@bg-type = 'video')": {
+                "background-image": "url(@fallBackImage)"
+              }
+            },
+            ".image-wrap img": {
+              "width": "100%",
+              "@media (min-width: 992px)": {
+                "display": "block",
+                "margin": "auto",
+                "width": "(@imageWidth * 10%)"
+              }
+            },
+            ".row-links": {
+              "width": "100%",
+              "justify-content": "center"
+            },
+            ".header-menu": {
+              "margin-top": "2rem",
+              "list-style": "none",
+              "display": "flex",
+              "justify-content": "center",
+              "flex-wrap": "wrap",
+              "padding": "0",
+              "margin-bottom": "0",
+              "li": {
+                "padding": "0 1rem 1rem 1rem",
+                "p": {
+                  "margin": "0"
+                }
+              }
+            },
+            ".content-head": {
+              "max-width": "800px"
+            },
+            ".mbr-section-title": {
+              "color": "#ffffff"
+            },
+            ".mbr-text, .mbr-section-btn": {
+              "color": "#ffffff"
+            }
+          },
+          "_name": "header13",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"header13\" group=\"Headers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n  <mbr-parameters>\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"12\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"12\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n    <input type=\"range\" name=\"imageWidth\" title=\"Image Width\" min=\"1\" max=\"12\" step=\"1\" value=\"8\" condition=\"showImage\">\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n    <input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\">\n    <input type=\"checkbox\" title=\"Image\" name=\"showImage\">\n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\" parallax>\n      <input type=\"image\" title=\"Image\" value=\"@PROJECT_PATH@/assets/images/free-stock-photo-of-project-management-with-copyspace-4.jpeg\" parallax selected>\n      <input type=\"color\" title=\"Color\" value=\"#edefeb\">\n      <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n    </fieldset>\n    <header condition=\"bg.type === 'video'\">Fallback Image</header>\n    <input type=\"image\" title=\"Fallback Image\" value=\"../_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffa600\" condition=\"overlay && bg.type !== 'color'\">\n    <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.1\" condition=\"overlay && bg.type !== 'color'\">\n  </mbr-parameters>\n\n  <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n  <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n  <div class=\"align-center\" mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n    <div class=\"row justify-content-center\">\n      <div class=\"col-md-12 mb-5 content-head\">\n        <h1 class=\"mbr-section-title mbr-fonts-style mb-4\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-1\" mbr-if=\"showTitle\"><b>METODOLOGI PENELITIAN</b></h1>\n        <p class=\"mbr-text mbr-fonts-style mb-4\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">Kumpulan catatan mata kuliah metodologi penelitian mengenai struktur artikel</p>\n        <div mbr-buttons mbr-theme-style=\"display-7\" class=\"mbr-section-btn mt-4\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\">\n          <a class=\"btn btn-primary\" href=\"https://mobiri.se\" data-app-placeholder=\"Type Text\">Create Free Website!</a>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"row justify-content-center\">\n      <div class=\"col-12 col-md-{{imageWidth}}\" mbr-if=\"showImage\">\n        <img src=\"../_images/hightlights/6.jpg\" alt=\"Mobirise Website Builder\" title>\n      </div>\n    </div>\n  </div>\n</section>",
+          "_cid": "tU4R1onavA",
+          "_anchor": "header13-0",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = \"color\")": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = \"image\")": {
+              "background-image": "url(@bg-value)",
+              "& when (@overlay)": {
+                ".mbr-overlay": {
+                  "background": "@overlayColor",
+                  "opacity": "@overlayOpacity"
+                }
+              }
+            },
+            "img, .item-img": {
+              "width": "100%",
+              "& when (@autoSize)": {
+                "height": "100%",
+                "object-fit": "cover",
+                "& when (@showCardTitle)": {
+                  "height": "(@imageHeight * 100px)",
+                  "object-fit": "cover"
+                },
+                "& when (@showCardSubtitle)": {
+                  "height": "(@imageHeight * 100px)",
+                  "object-fit": "cover"
+                },
+                "& when (@showText)": {
+                  "height": "(@imageHeight * 100px)",
+                  "object-fit": "cover"
+                },
+                "& when (@showButtons)": {
+                  "height": "(@imageHeight * 100px)",
+                  "object-fit": "cover"
+                },
+                "@media (max-width: 767px)": {
+                  "max-height": "300px"
+                }
+              }
+            },
+            ".item:focus, span:focus": {
+              "outline": "none"
+            },
+            ".item-wrapper": {
+              "position": "relative"
+            },
+            ".slide-content": {
+              "position": "relative",
+              "border-radius": "4px",
+              "background": "@cardsBg",
+              "height": "100%",
+              "display": "flex",
+              "overflow": "hidden",
+              "flex-flow": "column nowrap",
+              "@media (min-width: 768px)": {
+                "& when (@showButtons)": {
+                  ".item-content": {
+                    "padding": "2.25rem 2.25rem 0"
+                  },
+                  ".item-footer": {
+                    "padding": "0 2.25rem 2.25rem"
+                  }
+                },
+                "& when not (@showButtons)": {
+                  ".item-content": {
+                    "padding": "2.25rem"
+                  }
+                }
+              },
+              "@media (max-width: 767px)": {
+                "& when (@showButtons)": {
+                  ".item-content": {
+                    "padding": "1.5rem 1.5rem 0"
+                  },
+                  ".item-footer": {
+                    "padding": "0 1.5rem 1.5rem"
+                  }
+                },
+                "& when not (@showButtons)": {
+                  ".item-content": {
+                    "padding": "1.5rem"
+                  }
+                }
+              }
+            },
+            ".mbr-section-btn": {
+              "margin-top": "auto !important"
+            },
+            ".mbr-section-title": {
+              "color": "#232323"
+            },
+            ".mbr-text, .mbr-section-btn": {
+              "text-align": "left"
+            },
+            ".item-title": {
+              "text-align": "left"
+            },
+            ".item-subtitle": {
+              "text-align": "left",
+              "color": "#bbbbbb"
+            },
+            ".embla__slide": {
+              "display": "flex",
+              "justify-content": "center",
+              "position": "relative",
+              "min-width": "370px",
+              "max-width": "370px",
+              "@media (max-width: 768px)": {
+                "min-width": "85%",
+                "max-width": "initial"
+              }
+            },
+            ".embla__button--next, .embla__button--prev": {
+              "display": "flex"
+            },
+            ".embla__button": {
+              "top": "50%",
+              "width": "60px",
+              "height": "60px",
+              "margin-top": "-1.5rem",
+              "font-size": "22px",
+              "background-color": "rgba(0, 0, 0, 0.5)",
+              "color": "#fff",
+              "border": "2px solid #fff",
+              "border-radius": "50%",
+              "transition": "all 0.3s",
+              "position": "absolute",
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "& when not (@arrows)": {
+                "display": "none"
+              },
+              "& when not (@arrowsMobile)": {
+                "@media (max-width: 768px)": {
+                  "display": "none"
+                }
+              },
+              "&:disabled": {
+                "cursor": "default",
+                "display": "none"
+              },
+              "&:hover": {
+                "background": "#000",
+                "color": "rgba(255, 255, 255, 0.5)"
+              },
+              "&.embla__button--prev": {
+                "left": "0",
+                "margin-left": "2.5rem"
+              },
+              "&.embla__button--next": {
+                "right": "0",
+                "margin-right": "2.5rem"
+              },
+              "@media (max-width: 767px)": {
+                "top": "auto"
+              }
+            },
+            ".embla": {
+              "position": "relative",
+              "width": "100%"
+            },
+            ".embla__viewport": {
+              "overflow": "hidden",
+              "width": "100%"
+            },
+            ".embla__viewport.is-draggable": {
+              "cursor": "grab"
+            },
+            ".embla__viewport.is-dragging": {
+              "cursor": "grabbing"
+            },
+            ".embla__container": {
+              "display": "flex",
+              "user-select": "none",
+              "-webkit-touch-callout": "none",
+              "-khtml-user-select": "none",
+              "-webkit-tap-highlight-color": "transparent",
+              "@media (max-width: 768px)": {
+                "& .embla__slide:first-child": {
+                  "margin-left": "2rem !important"
+                },
+                "& .embla__slide:last-child": {
+                  "margin-right": "2rem !important"
+                }
+              }
+            },
+            ".content-head": {
+              "max-width": "800px"
+            }
+          },
+          "_name": "features017",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"features017 mbr-embla\" group=\"Gallery & Slider\" plugins=\"embla\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n\t<mbr-parameters>\n\t\t<header>Size</header>\n\t\t<input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\" checked>\n\t\t<input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"6\">\n\t\t<input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"6\">\n\t\t<header>Show/Hide</header>\n\t\t<input type=\"checkbox\" name=\"showTitle\" title=\"Title\" checked>\n\t\t<input type=\"checkbox\" name=\"showSubtitle\" title=\"Subtitle\">\n\t\t<header>Carousel</header>\n\t\t<input type=\"checkbox\" title=\"Autoplay\" name=\"autoplay\">\n\t\t<input type=\"range\" title=\"Interval\" name=\"interval\" min=\"1\" max=\"10\" value=\"5\" step=\"1\" condition=\"autoplay\">\n\t\t<input type=\"checkbox\" title=\"Loop\" name=\"loop\">\n\t\t<input type=\"checkbox\" title=\"Draggable\" name=\"draggable\" checked>\n\t\t<input type=\"checkbox\" name=\"arrows\" title=\"Arrows\" checked>\n\t\t<input type=\"checkbox\" name=\"arrowsMobile\" title=\"Mobile Arrows\" condition=\"arrows\">\n\t\t<header>Cards</header>\n\t\t<input type=\"checkbox\" name=\"autoSize\" title=\"Auto Size\" checked>\n\t\t<input type=\"range\" name=\"imageHeight\" title=\"Height\" min=\"1\" max=\"5\" step=\"1\" value=\"4\" condition=\"autoSize && !(showButtons==false && showCardSubtitle==false && showCardTitle==false && showText==false)\">\n\t\t<input type=\"range\" name=\"gap\" title=\"Gap\" min=\"0\" max=\"10\" step=\"1\" value=\"1\">\n\t\t<input type=\"checkbox\" name=\"showCardTitle\" title=\"Title\" checked>\n\t\t<input type=\"checkbox\" name=\"showCardSubtitle\" title=\"Subtitle\">\n\t\t<input type=\"checkbox\" name=\"showText\" title=\"Text\">\n\t\t<input type=\"checkbox\" name=\"showButtons\" title=\"Buttons\" checked>\n\t\t<input type=\"color\" name=\"cardsBg\" title=\"BG\" value=\"#ffffff\">\n\t\t<header>Background</header>\n\t\t<fieldset type=\"background\" name=\"bg\" parallax required>\n\t\t\t<input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\">\n\t\t\t<input type=\"color\" title=\"Color\" value=\"#ededed\" selected>\n\t\t</fieldset>\n\t\t<input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n\t\t<input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#fafafa\" condition=\"overlay && bg.type == 'image'\">\n\t\t<input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type == 'image'\">\n\t</mbr-parameters>\n\t<div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\"></div>\n\t<div class=\"position-relative\">\n\t\t<div mbr-class=\"{'container': !fullWidth,\n                    'container-fluid': fullWidth}\">\n\t\t\t<div class=\"row justify-content-center\">\n\t\t\t\t<div class=\"col-12 content-head\">\n\t\t\t\t\t<div class=\"mbr-section-head mb-5\" mbr-if=\"showTitle || showSubtitle\">\n\t\t\t\t\t\t<h4 class=\"mbr-section-title mbr-fonts-style align-center mb-0\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n\t\t\t\t\t\t\t<b>Struktur Artikel</b></h4>\n\t\t\t\t\t\t<h5 class=\"mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-4\" mbr-theme-style=\"display-7\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">\n\t\t\t\t\t\t\tTo add more cards, hover on a card and click 'Add items'\n\t\t\t\t\t\t</h5>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"embla\" data-loop=\"{{loop}}\" data-auto-play=\"{{autoplay}}\" data-auto-play-interval=\"{{interval}}\" data-draggable=\"{{draggable}}\" data-skip-snaps=\"true\" data-align=\"center\" data-contain-scroll=\"trimSnaps\">\n\t\t\t<div class=\"embla__viewport\" mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n\t\t\t\t<div class=\"embla__container\">\n\t\t\t\t\t<div class=\"embla__slide slider-image item active\" mbr-style=\"{'margin-left': gap + 'rem', 'margin-right': gap + 'rem'}\">\n\t\t\t\t\t\t<div class=\"slide-content\">\n\t\t\t\t\t\t\t<div class=\"item-img\">\n\t\t\t\t\t\t\t\t<div class=\"item-wrapper\">\n\t\t\t\t\t\t\t\t\t<img src=\"@PROJECT_PATH@/assets/images/screenshot-2023-10-29.png\" alt=\"Mobirise Website Builder\" title data-slide-to=\"1\" data-bs-slide-to=\"1\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"item-content\" mbr-if=\"showCardTitle || showCardSubtitle || showText || showButtons\">\n\t\t\t\t\t\t\t\t<h5 class=\"item-title mbr-fonts-style\" mbr-theme-style=\"display-5\" data-app-selector=\".item-title\" mbr-if=\"showCardTitle\"><b>Title</b></h5>\n\t\t\t\t\t\t\t\t<h6 class=\"item-subtitle mbr-fonts-style mt-1\" mbr-theme-style=\"display-7\" data-app-selector=\".item-subtitle\" mbr-if=\"showCardSubtitle\">\n\t\t\t\t\t\t\t\t\tWebsite Design\n\t\t\t\t\t\t\t\t</h6>\n\t\t\t\t\t\t\t\t<p class=\"mbr-text mbr-fonts-style mt-3\" mbr-if=\"showText\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n\t\t\t\t\t\t\t\t\tMobirise is an easy website builder. Just drop site elements to your page, add\n\t\t\t\t\t\t\t\t\tcontent and style it to look the way you like.\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"mbr-section-btn item-footer mt-2\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd\" mbr-buttons mbr-theme-style=\"display-7\"><a href=\"page1.html\" class=\"btn item-btn btn-primary\" data-app-placeholder=\"Type Text\">Read Now</a></div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"embla__slide slider-image item\" mbr-style=\"{'margin-left': gap + 'rem', 'margin-right': gap + 'rem'}\">\n\t\t\t\t\t\t<div class=\"slide-content\">\n\t\t\t\t\t\t\t<div class=\"item-img\">\n\t\t\t\t\t\t\t\t<div class=\"item-wrapper\">\n\t\t\t\t\t\t\t\t\t<img src=\"@PROJECT_PATH@/assets/images/screenshot-2023-10-30.png\" alt=\"Mobirise Website Builder\" title data-slide-to=\"2\" data-bs-slide-to=\"2\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"item-content\" mbr-if=\"showCardTitle || showCardSubtitle || showText || showButtons\">\n\t\t\t\t\t\t\t\t<h5 class=\"item-title mbr-fonts-style\" mbr-theme-style=\"display-5\" data-app-selector=\".item-title\" mbr-if=\"showCardTitle\"><b>Keywords &amp; Abstract</b></h5>\n\t\t\t\t\t\t\t\t<h6 class=\"item-subtitle mbr-fonts-style mt-1\" mbr-theme-style=\"display-7\" data-app-selector=\".item-subtitle\" mbr-if=\"showCardSubtitle\">\n\t\t\t\t\t\t\t\t\tWebsite Design\n\t\t\t\t\t\t\t\t</h6>\n\t\t\t\t\t\t\t\t<p class=\"mbr-text mbr-fonts-style mt-3\" mbr-if=\"showText\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n\t\t\t\t\t\t\t\t\tMobirise is an easy website builder. Just drop site elements to your page, add\n\t\t\t\t\t\t\t\t\tcontent and style it to look the way you like.\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"mbr-section-btn item-footer mt-2\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd\" mbr-buttons mbr-theme-style=\"display-7\"><a href=\"page2.html\" class=\"btn item-btn btn-primary\" data-app-placeholder=\"Type Text\">Read Now</a></div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"embla__slide slider-image item\" mbr-style=\"{'margin-left': gap + 'rem', 'margin-right': gap + 'rem'}\">\n\t\t\t\t\t\t<div class=\"slide-content\">\n\t\t\t\t\t\t\t<div class=\"item-img\">\n\t\t\t\t\t\t\t\t<div class=\"item-wrapper\">\n\t\t\t\t\t\t\t\t\t<img src=\"@PROJECT_PATH@/assets/images/screenshot-2023-10-31.png\" alt=\"Mobirise Website Builder\" title data-slide-to=\"3\" data-bs-slide-to=\"3\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"item-content\" mbr-if=\"showCardTitle || showCardSubtitle || showText || showButtons\">\n\t\t\t\t\t\t\t\t<h5 class=\"item-title mbr-fonts-style\" mbr-theme-style=\"display-5\" data-app-selector=\".item-title\" mbr-if=\"showCardTitle\"><b>Introduction &amp; Related Works</b></h5>\n\t\t\t\t\t\t\t\t<h6 class=\"item-subtitle mbr-fonts-style mt-1\" mbr-theme-style=\"display-7\" data-app-selector=\".item-subtitle\" mbr-if=\"showCardSubtitle\">\n\t\t\t\t\t\t\t\t\tWebsite Design\n\t\t\t\t\t\t\t\t</h6>\n\t\t\t\t\t\t\t\t<p class=\"mbr-text mbr-fonts-style mt-3\" mbr-if=\"showText\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n\t\t\t\t\t\t\t\t\tMobirise is an easy website builder. Just drop site elements to your page, add\n\t\t\t\t\t\t\t\t\tcontent and style it to look the way you like.\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"mbr-section-btn item-footer mt-2\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd\" mbr-buttons mbr-theme-style=\"display-7\"><a href=\"page3.html\" class=\"btn item-btn btn-primary\" data-app-placeholder=\"Type Text\">Read Now</a></div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"embla__slide slider-image item\" mbr-style=\"{'margin-left': gap + 'rem', 'margin-right': gap + 'rem'}\">\n\t\t\t\t\t\t<div class=\"slide-content\">\n\t\t\t\t\t\t\t<div class=\"item-img\">\n\t\t\t\t\t\t\t\t<div class=\"item-wrapper\">\n\t\t\t\t\t\t\t\t\t<img src=\"@PROJECT_PATH@/assets/images/screenshot-2023-10-32.png\" alt=\"Mobirise Website Builder\" title data-slide-to=\"4\" data-bs-slide-to=\"4\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"item-content\" mbr-if=\"showCardTitle || showCardSubtitle || showText || showButtons\">\n\t\t\t\t\t\t\t\t<h5 class=\"item-title mbr-fonts-style\" mbr-theme-style=\"display-5\" data-app-selector=\".item-title\" mbr-if=\"showCardTitle\"><b>Experimental Setup</b></h5>\n\t\t\t\t\t\t\t\t<h6 class=\"item-subtitle mbr-fonts-style mt-1\" mbr-theme-style=\"display-7\" data-app-selector=\".item-subtitle\" mbr-if=\"showCardSubtitle\">\n\t\t\t\t\t\t\t\t\tWebsite Design\n\t\t\t\t\t\t\t\t</h6>\n\t\t\t\t\t\t\t\t<p class=\"mbr-text mbr-fonts-style mt-3\" mbr-if=\"showText\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n\t\t\t\t\t\t\t\t\tMobirise is an easy website builder. Just drop site elements to your page, add\n\t\t\t\t\t\t\t\t\tcontent and style it to look the way you like.\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"mbr-section-btn item-footer mt-2\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd\" mbr-buttons mbr-theme-style=\"display-7\"><a href=\"page4.html\" class=\"btn item-btn btn-primary\" data-app-placeholder=\"Type Text\">Read Now</a></div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<button class=\"embla__button embla__button--prev\">\n\t\t\t\t<span class=\"mobi-mbri mobi-mbri-arrow-prev mbr-iconfont\" aria-hidden=\"true\"></span>\n\t\t\t\t<span class=\"sr-only visually-hidden visually-hidden visually-hidden\">Previous</span>\n\t\t\t</button>\n\t\t\t<button class=\"embla__button embla__button--next\">\n\t\t\t\t<span class=\"mobi-mbri mobi-mbri-arrow-next mbr-iconfont\" aria-hidden=\"true\"></span>\n\t\t\t\t<span class=\"sr-only visually-hidden visually-hidden visually-hidden\">Next</span>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n</section>",
+          "_cid": "tU4VVtlicZ",
+          "_anchor": "features017-5",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "overflow": "hidden"
+          },
+          "_name": "footer04",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"footer4\" group=\"Footers\" global once=\"footers\" mbr-class=\"{'mbr-reveal': reveal, 'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"checkbox\" title=\"Reveal effect\" name=\"reveal\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"../_images/background5.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#2e481a\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#2e481a\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div class=\"container\">\n        <div class=\"media-container-row align-center mbr-white\">\n            <div class=\"col-12\">\n                <p class=\"mbr-text mb-0 mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".media-container-row .mbr-text\" data-app-placeholder=\"Type Text\">\n                    © Copyright 2025 Mobirise - All Rights Reserved\n                </p>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "tU53ldJ4Il",
+          "_anchor": "footer04-8",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footers",
+          "_params": {}
+        }
+      ]
+    },
+    "page1.html": {
+      "settings": {
+        "title": "Title",
+        "order": "4"
+      },
+      "components": [
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)"
+            },
+            "& when (@bg-type = \"color\")": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = \"image\")": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-fallback-image.disabled": {
+              "display": "none"
+            },
+            ".mbr-fallback-image": {
+              "display": "block",
+              "background-size": "cover",
+              "background-position": "center center",
+              "width": "100%",
+              "height": "100%",
+              "position": "absolute",
+              "top": "0",
+              "& when (@bg-type = 'video')": {
+                "background-image": "url(@fallBackImage)"
+              }
+            },
+            ".card-content-text": {
+              "@media (max-width: 767px)": {
+                "padding": "0 1.5rem 1.5rem 1.5rem"
+              },
+              "@media (min-width: 768px)": {
+                "padding": "0 2.25rem 2.25rem 2.25rem"
+              }
+            },
+            ".card-wrapper": {
+              "background": "@wrapBgColor"
+            },
+            ".mbr-text, .mbr-section-btn": {
+              "color": "#000000",
+              "text-align": "left"
+            },
+            ".card-title, .card-box": {
+              "text-align": "left",
+              "color": "#000000"
+            }
+          },
+          "_name": "article08",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"article8\" group=\"Article\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n  <mbr-parameters>\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n    <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n    <input type=\"range\" inline title=\"Content Width\" name=\"contentWidth\" min=\"8\" max=\"12\" step=\"1\" value=\"10\">\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Image\" name=\"showImage\">\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n    <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\">\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n    <input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\">\n    <input type=\"color\" title=\"Wrap Bg\" name=\"wrapBgColor\" value=\"#ffffff\">\n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\" parallax>\n      <input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\" parallax>\n      <input type=\"color\" title=\"Color\" value=\"#edefeb\" selected>\n      <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n    </fieldset>\n    <header condition=\"bg.type === 'video'\">Fallback Image</header>\n    <input type=\"image\" title=\"Fallback Image\" value=\"../_images/background1.jpgg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n    <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.3\" condition=\"overlay && bg.type !== 'color'\">\n  </mbr-parameters>\n\n  <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n  <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\"></div>\n  <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n    <div class=\"row justify-content-center\">\n      <div class=\"card col-md-12 col-lg-{{contentWidth}}\">\n        <div class=\"card-wrapper\">\n          <div class=\"image-wrapper d-flex justify-content-center mb-4\">\n            <img mbr-if=\"showImage\" src=\"../_images/hightlights/11.jpg\" alt=\"Mobirise Website Builder\">\n          </div>\n          <div class=\"card-content-text\">\n            <h3 class=\"card-title mbr-fonts-style mbr-white mt-3 mb-4\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".card-title, .card-box\"><b>Title:</b>\n          </h3>\n          <div class=\"row card-box align-left\">\n            <div class=\"item features-without-image col-12\">\n              <div class=\"item-wrapper\">\n                <h4 class=\"mbr-section-subtitle mbr-fonts-style mb-3\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-5\">\n                  <b>Eligibility for returns</b>\n                </h4>\n                <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">Title atau judul adalah bagian pada paper yang digunakan untuk mengindentifikasi masalah dan metode penyelesaian. Misalnya sebuah artike berjuduk \"IDS-GAN : STEPPING UP INSTRUCTION DETECTION METHOD USING GAN ALGORITHM\" (Metode deteksi gangguan pada jaringan dengan menggunakan algoritma GAN).<br><br>Berdasarkan judul di atas maka diperoleh masalah :<br>1. Deteksi Gangguan Jaringan Komputer<br>2. Metode algoritma GAN</p>\n              </div>\n            </div>\n            \n            \n\n            <div mbr-buttons mbr-theme-style=\"display-7\" class=\"mbr-section-btn mt-3\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\">\n              <a class=\"btn btn-primary\" href=\"https://mobiri.se\" data-app-placeholder=\"Type Text\">Start Now</a>\n            </div>\n          </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>",
+          "_cid": "tU53a4zmGH",
+          "_anchor": "article08-7",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "overflow": "hidden"
+          },
+          "_name": "footer04",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"footer4\" group=\"Footers\" global once=\"footers\" mbr-class=\"{'mbr-reveal': reveal, 'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"checkbox\" title=\"Reveal effect\" name=\"reveal\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"../_images/background5.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#2e481a\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#2e481a\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div class=\"container\">\n        <div class=\"media-container-row align-center mbr-white\">\n            <div class=\"col-12\">\n                <p class=\"mbr-text mb-0 mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".media-container-row .mbr-text\" data-app-placeholder=\"Type Text\">\n                    © Copyright 2025 Mobirise - All Rights Reserved\n                </p>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "tU53ldJ4Il",
+          "_anchor": "footer04-8",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footers",
+          "_params": {}
+        }
+      ]
+    },
+    "page2.html": {
+      "settings": {
+        "title": "Keywords &amp; Abstract",
+        "order": "3"
+      },
+      "components": [
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)"
+            },
+            "& when (@bg-type = \"color\")": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = \"image\")": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-fallback-image.disabled": {
+              "display": "none"
+            },
+            ".mbr-fallback-image": {
+              "display": "block",
+              "background-size": "cover",
+              "background-position": "center center",
+              "width": "100%",
+              "height": "100%",
+              "position": "absolute",
+              "top": "0",
+              "& when (@bg-type = 'video')": {
+                "background-image": "url(@fallBackImage)"
+              }
+            },
+            ".card-content-text": {
+              "@media (max-width: 767px)": {
+                "padding": "0 1.5rem 1.5rem 1.5rem"
+              },
+              "@media (min-width: 768px)": {
+                "padding": "0 2.25rem 2.25rem 2.25rem"
+              }
+            },
+            ".card-wrapper": {
+              "background": "@wrapBgColor"
+            },
+            ".mbr-text, .mbr-section-btn": {
+              "color": "#000000",
+              "text-align": "left"
+            },
+            ".card-title, .card-box": {
+              "text-align": "left",
+              "color": "#000000"
+            }
+          },
+          "_name": "article08",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"article8\" group=\"Article\" data-bg-video=\"{{bg.type == 'video' &amp;&amp; bg.value.url}}\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n  <mbr-parameters>\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n    <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n    <input type=\"range\" inline=\"\" title=\"Content Width\" name=\"contentWidth\" min=\"8\" max=\"12\" step=\"1\" value=\"10\">\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Image\" name=\"showImage\">\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked=\"\">\n    <input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\">\n    <input type=\"color\" title=\"Wrap Bg\" name=\"wrapBgColor\" value=\"#ffffff\">\n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\" parallax=\"\">\n      <input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\" parallax=\"\">\n      <input type=\"color\" title=\"Color\" value=\"#edefeb\" selected=\"\">\n      <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n    </fieldset>\n    <header condition=\"bg.type === 'video'\">Fallback Image</header>\n    <input type=\"image\" title=\"Fallback Image\" value=\"../_images/background1.jpgg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked=\"\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.3\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n  </mbr-parameters>\n\n  <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n  <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\"></div>\n  <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n    <div class=\"row justify-content-center\">\n      <div class=\"card col-md-12 col-lg-{{contentWidth}}\">\n        <div class=\"card-wrapper\">\n          <div class=\"image-wrapper d-flex justify-content-center mb-4\">\n            <img mbr-if=\"showImage\" src=\"../_images/hightlights/11.jpg\" alt=\"Mobirise Website Builder\">\n          </div>\n          <div class=\"card-content-text\">\n            <h3 class=\"card-title mbr-fonts-style mbr-white mt-3 mb-4\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".card-title, .card-box\"><b>Keywords &amp; Abstract:</b>\n          </h3>\n          <div class=\"row card-box align-left\">\n            \n            <div class=\"item features-without-image col-12 active\">\n              <div class=\"item-wrapper\">\n                <h4 class=\"mbr-section-subtitle mbr-fonts-style mb-3\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-5\"><b>Keywords :</b></h4>\n                <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">Keywords adalah bagian pada artikel yang terdiri dari beberapa kata kunci untuk mengidentifikasi konten pada sebuah artikel ilmiah.</p>\n              </div>\n            </div><div class=\"item features-without-image col-12\">\n              <div class=\"item-wrapper\">\n                <h4 class=\"mbr-section-subtitle mbr-fonts-style\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-5\"><b>Abstract</b></h4>\n                <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">Abstract adalah bagian pada artikel yang menjelaskan secara singkat setiap elemen yang meliputi latar belakang maslah, tujuan, metode dan hasil penelitian.<br><br>Pada penulisan artikel ilmiah di sajikan dalam satu paragraf. Ketentuan lain dalam penulisan abstract, antara lain :<br>1. Abstract ditulis dalam kalimat aktif.<br>2. Struktur penulisan data menggunakan format Subjek + Predikat + Objek + Keterangan.<br>3. Abstract ditulis dengan format masa kini (present tense)</p>\n              </div>\n            </div>\n            \n\n            <div mbr-buttons=\"\" mbr-theme-style=\"display-7\" class=\"mbr-section-btn mt-3\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\">\n              <a class=\"btn btn-primary\" href=\"https://mobiri.se\" data-app-placeholder=\"Type Text\">Start Now</a>\n            </div>\n          </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>",
+          "_cid": "tU56C6uaHe",
+          "_anchor": "article08-a",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "overflow": "hidden"
+          },
+          "_name": "footer04",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"footer4\" group=\"Footers\" global once=\"footers\" mbr-class=\"{'mbr-reveal': reveal, 'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"checkbox\" title=\"Reveal effect\" name=\"reveal\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"../_images/background5.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#2e481a\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#2e481a\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div class=\"container\">\n        <div class=\"media-container-row align-center mbr-white\">\n            <div class=\"col-12\">\n                <p class=\"mbr-text mb-0 mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".media-container-row .mbr-text\" data-app-placeholder=\"Type Text\">\n                    © Copyright 2025 Mobirise - All Rights Reserved\n                </p>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "tU53ldJ4Il",
+          "_anchor": "footer04-9",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footers",
+          "_params": {}
+        }
+      ]
+    },
+    "page3.html": {
+      "settings": {
+        "title": "Introduction & Related Works",
+        "order": "2"
+      },
+      "components": [
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)"
+            },
+            "& when (@bg-type = \"color\")": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = \"image\")": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-fallback-image.disabled": {
+              "display": "none"
+            },
+            ".mbr-fallback-image": {
+              "display": "block",
+              "background-size": "cover",
+              "background-position": "center center",
+              "width": "100%",
+              "height": "100%",
+              "position": "absolute",
+              "top": "0",
+              "& when (@bg-type = 'video')": {
+                "background-image": "url(@fallBackImage)"
+              }
+            },
+            ".card-content-text": {
+              "@media (max-width: 767px)": {
+                "padding": "0 1.5rem 1.5rem 1.5rem"
+              },
+              "@media (min-width: 768px)": {
+                "padding": "0 2.25rem 2.25rem 2.25rem"
+              }
+            },
+            ".card-wrapper": {
+              "background": "@wrapBgColor"
+            },
+            ".mbr-text, .mbr-section-btn": {
+              "color": "#000000",
+              "text-align": "left"
+            },
+            ".card-title, .card-box": {
+              "text-align": "left",
+              "color": "#000000"
+            }
+          },
+          "_name": "article08",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"article8\" group=\"Article\" data-bg-video=\"{{bg.type == 'video' &amp;&amp; bg.value.url}}\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n  <mbr-parameters>\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n    <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n    <input type=\"range\" inline=\"\" title=\"Content Width\" name=\"contentWidth\" min=\"8\" max=\"12\" step=\"1\" value=\"10\">\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Image\" name=\"showImage\">\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked=\"\">\n    <input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\">\n    <input type=\"color\" title=\"Wrap Bg\" name=\"wrapBgColor\" value=\"#ffffff\">\n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\" parallax=\"\">\n      <input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\" parallax=\"\">\n      <input type=\"color\" title=\"Color\" value=\"#edefeb\" selected=\"\">\n      <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n    </fieldset>\n    <header condition=\"bg.type === 'video'\">Fallback Image</header>\n    <input type=\"image\" title=\"Fallback Image\" value=\"../_images/background1.jpgg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked=\"\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.3\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n  </mbr-parameters>\n\n  <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n  <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\"></div>\n  <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n    <div class=\"row justify-content-center\">\n      <div class=\"card col-md-12 col-lg-{{contentWidth}}\">\n        <div class=\"card-wrapper\">\n          <div class=\"image-wrapper d-flex justify-content-center mb-4\">\n            <img mbr-if=\"showImage\" src=\"../_images/hightlights/11.jpg\" alt=\"Mobirise Website Builder\">\n          </div>\n          <div class=\"card-content-text\">\n            <h3 class=\"card-title mbr-fonts-style mbr-white mt-3 mb-4\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".card-title, .card-box\"><b>Introduction &amp; Related Works :</b>\n          </h3>\n          <div class=\"row card-box align-left\">\n            <div class=\"item features-without-image col-12\">\n              <div class=\"item-wrapper\">\n                <h4 class=\"mbr-section-subtitle mbr-fonts-style mb-3\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-5\"><b>Introduction (Pendahuluan)</b></h4>\n                <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">Introduction adalah bagian dari artikel ilmiah yang digunakan untuk menjelaskan beberapa aspek meliputi latar belakang penelitian, metode pemecahan yang ada saat ini, pembaharuan pendekatan, dan kontribusi hasil penelitian.<br><br> Dalam penulisan introduction terdapat beberapa ketentuan antara lain:<br>1. Paragraf pada penulisan introduction berkisar 10 sampai 14 baris.<br>2. Penulisan introduction menggunakan kalimat aktif (active voice).<br>3. Penulisan introduction menggunakan format subjek + predikat + objek + keterangan.<br>4. Penulisan introduction sebaiknya menggunakan kalimat masa kini (present tense).<br>5. Pada penulisan introduction diharuskan mencantumkan kontribusi penelitian yang dilakukan terhadap ilmu pengetahuan.<br>Penulisan introduction sebaiknya mendiskripsikan organisasi pada penelitian, meliputi : bab 1, bab 2, bab 3, bab 4, bab 5.<br><br>Pada topik introduction sebuah artikel ilmiah yang baik harus menampilkan kebaruan penelitian serta kontribusi artikel.</p>\n              </div>\n            </div>\n            <div class=\"item features-without-image col-12\">\n              <div class=\"item-wrapper\">\n                <h4 class=\"mbr-section-subtitle mbr-fonts-style\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-5\">\n                  <b>Related Works (Penelitian Terkait)</b></h4>\n                <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">Pada bagian related works sebuah artikel ilmiah yang baik akan menampilkan berbagai hasil penelitian yang mirip dengan penelitian pada paper yang ditulis.<br><br>Berikut ketentuan cara menulis related works :<br>1. Penulisan menggunakan format masa lampau (past tense).<br>2. Penulisan related works menggunakan kalimat aktif.<br>3. Penulisan related works menggunakan format&nbsp;subjek + predikat + objek + keterangan.<br>4. Penulisan related works harus mendeskripsikan masalah penelitian, metode yang digunakan, hasil penelitian dan analisa hasil penelitian tersebut.<br>5. Penulisan konten atau isi pada related works harus dimulai dari penelitian yang menggunakan teknik lampau ke penelitian menggunakan teknik terbaru.<br><br>Dalam penulisan related works diperlukan beberapa artikel ilmiah untuk mendukung penelitian yang dilakukan pada saat itu. Sumber artikel ilmiah yang digunakan untuk menulis related works harus berasal dari jurnal yang bereputasi.<br><br>Related works tidak diizinkan menggunakan referensi yang berasal dari website (www), media masa, atau buku yang tidak mensitasi langsung pernyataan tersebut.<br><br>Pada bagian related works artikel ilmiah yang baik perlu menuliskan alasan penggunaan sebuah metode untuk menyelesaikan permasalahan penelitian.<br><br>Penulisan related works pada artikel ilmiah yang baik dapat dilakukan melalui proses literatur review. Literatur review adalah proses untuk mencari artikel penelitian terkait untuk mendukung eksperimen yang sedang dilakukan.&nbsp;<br><br>Sumber literatur review yang baik berasal dari beberapa dokumen, antara lain:<br>1. Journal articles<br>Journal articles (artikel jurnal) adalah jenis artikel yang dipublikasikan oleh penerbit (publisher) melalui proses seleksi yang ketat atau kompetitif.<br><br>2. Case studies<br>Case studies (studi kasus) adalah jenis artikel yang dipublikasikan oleh organisasi tertentu berdasarkan studi atau penelitian terhadap kasus - kasus tertentu.<br><br>3. Conference proceedings<br>Conference proceedings (seminar) adalah jenis artikel ilmiah yang dipublikasikan dari hasil konferensi atau seminar baik nasional maupun internasional.<br><br>4. Company reports<br>Company reports (laporan perusahaan) adalah jenis artikel yang dipublikasikan berdasar sebuah badan usaha yang memiliki relasi dengan topik penelitian yang sedang dilakukan.<br><br>Dalam menulis literatur review yang baik referensi literatur ilmiah yang digunakan berasal dari sumber yang paling baru (update). Periode artikel ilmiah yang digunakan pada bagian ini sebaiknya berasal dari sumber yang dipublikasikan berdasar empat tahun terakhir.</p>\n              </div>\n            </div>\n            \n\n            <div mbr-buttons=\"\" mbr-theme-style=\"display-7\" class=\"mbr-section-btn mt-3\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\">\n              <a class=\"btn btn-primary\" href=\"https://mobiri.se\" data-app-placeholder=\"Type Text\">Start Now</a>\n            </div>\n          </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>",
+          "_cid": "tUmJouT5DH",
+          "_anchor": "article08-c",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "overflow": "hidden"
+          },
+          "_name": "footer04",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"footer4\" group=\"Footers\" global once=\"footers\" mbr-class=\"{'mbr-reveal': reveal, 'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"checkbox\" title=\"Reveal effect\" name=\"reveal\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"../_images/background5.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#2e481a\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#2e481a\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div class=\"container\">\n        <div class=\"media-container-row align-center mbr-white\">\n            <div class=\"col-12\">\n                <p class=\"mbr-text mb-0 mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".media-container-row .mbr-text\" data-app-placeholder=\"Type Text\">\n                    © Copyright 2025 Mobirise - All Rights Reserved\n                </p>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "tU53ldJ4Il",
+          "_anchor": "footer04-b",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footers",
+          "_params": {}
+        }
+      ]
+    },
+    "page4.html": {
+      "settings": {
+        "title": "Experimental Setup",
+        "order": "1"
+      },
+      "components": [
+        {
+          "alias": false,
+          "_styles": {
+            "display": "flex",
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 15px)",
+              "padding-bottom": "(@paddingBottom * 15px)"
+            },
+            "& when (@bg-type = \"color\")": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = \"image\")": {
+              "background-image": "url(@bg-value)",
+              ".mbr-overlay": {
+                "background-color": "@overlayColor",
+                "opacity": "@overlayOpacity"
+              }
+            },
+            ".content-wrap": {
+              "padding": "5rem 1rem"
+            },
+            "@media (min-width: 768px)": {
+              "align-items": "~\"@{verticalAlign}\"",
+              ".row": {
+                "justify-content": "~\"@{horizontalAlign}\""
+              }
+            },
+            "@media (max-width: 991px) and (min-width: 768px)": {
+              ".content-wrap": {
+                "min-width": "50%"
+              }
+            },
+            "@media (max-width: 767px)": {
+              "-webkit-align-items": "center",
+              "align-items": "center",
+              ".mbr-row": {
+                "-webkit-justify-content": "center",
+                "justify-content": "center"
+              },
+              ".content-wrap": {
+                "width": "100%"
+              }
+            },
+            ".mbr-section-title": {
+              "text-align": "center"
+            },
+            ".mbr-text, .mbr-section-btn": {
+              "text-align": "center"
+            }
+          },
+          "_name": "header09",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"header09\" group=\"Headers\" mbr-class=\"{'mbr-fullscreen': fullScreen,\n'mbr-parallax-background': bg.parallax}\">\n\t<mbr-parameters>\n\t\t<header>Size</header>\n\t\t<input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n\t\t<input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n\t\t<input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"12\" step=\"1\" value=\"0\" condition=\"fullScreen == false\">\n\t\t<input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"12\" step=\"1\" value=\"0\" condition=\"fullScreen == false\">\n\t\t<input type=\"range\" inline name=\"contentWidth\" title=\"Content Width\" min=\"4\" max=\"12\" step=\"1\" value=\"12\">\n\t\t<header>Show / Hide</header>\n\t\t<input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n\t\t<input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\">\n\t\t<input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n\t\t<input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\">\n\t\t<select title=\"Vertical Align\" name=\"verticalAlign\" condition=\"fullScreen\">\n\t\t\t<option value=\"flex-start\">Top</option>\n\t\t\t<option value=\"center\" selected>Center</option>\n\t\t\t<option value=\"flex-end\">Bottom</option>\n\t\t</select>\n\t\t<select title=\"Horizontal Align\" name=\"horizontalAlign\">\n\t\t\t<option value=\"flex-start\" selected>Left</option>\n\t\t\t<option value=\"center\">Center</option>\n\t\t\t<option value=\"flex-end\">Right</option>\n\t\t</select>\n\t\t<header>Background</header>\n\t\t<fieldset type=\"background\" name=\"bg\" parallax>\n\t\t\t<input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\">\n\t\t\t<input type=\"color\" title=\"Color\" value=\"#393193\" selected>\n\t\t</fieldset>\n\n\t\t<input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type!='color'\">\n\t\t<input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffa600\" condition=\"bg.type!='color' && overlay\">\n\t\t<input type=\"range\" inline title=\"Overlay Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"bg.type!='color' && overlay\">\n\t</mbr-parameters>\n\t<div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\"></div>\n\t<div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"content-wrap col-12 col-md-{{contentWidth}}\">\n\t\t\t\t<h1 class=\"mbr-section-title mbr-fonts-style mbr-white mb-4\" mbr-theme-style=\"display-1\" data-app-selector=\".mbr-section-title\" mbr-if=\"showTitle\">\n\t\t\t\t\t<b>Create, connect, shine</b>\n\t\t\t\t</h1>\n\t\t\t\t<h2 class=\"mbr-section-title mbr-fonts-style mbr-white mb-4\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-2\" mbr-if=\"showSubtitle\">\n\t\t\t\t\tHeader Subtitle\n\t\t\t\t</h2>\n\t\t\t\t<p class=\"mbr-fonts-style mbr-text mbr-white mb-4\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n\t\t\t\t\tMobirise Free Website Maker is perfect for non-techies and great for pro-coders for fast prototyping\n\t\t\t\t\tand small customers' projects.\n\t\t\t\t</p>\n\t\t\t\t<div class=\"mbr-section-btn\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-7\">\n\t\t\t\t\t<a class=\"btn btn-danger\" href=\"https://mobiri.se\" data-app-placeholder=\"Type Text\">Learn more</a>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>",
+          "_cid": "tXqQSqOtaV",
+          "_anchor": "header09-h",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)"
+            },
+            "& when (@bg-type = \"color\")": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = \"image\")": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-fallback-image.disabled": {
+              "display": "none"
+            },
+            ".mbr-fallback-image": {
+              "display": "block",
+              "background-size": "cover",
+              "background-position": "center center",
+              "width": "100%",
+              "height": "100%",
+              "position": "absolute",
+              "top": "0",
+              "& when (@bg-type = 'video')": {
+                "background-image": "url(@fallBackImage)"
+              }
+            },
+            ".card-wrapper": {
+              "background": "@wrapBgColor",
+              "@media (max-width: 767px)": {
+                "padding": "1.5rem"
+              },
+              "@media (min-width: 768px)": {
+                "padding": "2.25rem"
+              }
+            },
+            ".mbr-text, .mbr-section-btn": {
+              "color": "#000000",
+              "text-align": "left"
+            },
+            ".card-title, .card-box": {
+              "text-align": "left",
+              "color": "#000000"
+            }
+          },
+          "_name": "article07",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"article07\" group=\"Article\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n  <mbr-parameters>\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n    <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n    <input type=\"range\" inline title=\"Content Width\" name=\"contentWidth\" min=\"8\" max=\"12\" step=\"1\" value=\"10\">\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n    <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\">\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n    <input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\">\n    <input type=\"color\" title=\"Wrap Bg\" name=\"wrapBgColor\" value=\"#ffffff\">\n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\" parallax>\n      <input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\" parallax>\n      <input type=\"color\" title=\"Color\" value=\"#edefeb\" selected>\n      <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n    </fieldset>\n    <header condition=\"bg.type === 'video'\">Fallback Image</header>\n    <input type=\"image\" title=\"Fallback Image\" value=\"../_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n    <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.3\" condition=\"overlay && bg.type !== 'color'\">\n  </mbr-parameters>\n\n  <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n  <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\"></div>\n  <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n    <div class=\"row justify-content-center\">\n      <div class=\"card col-md-12 col-lg-{{contentWidth}}\">\n        <div class=\"card-wrapper\">\n          <h3 class=\"card-title mbr-fonts-style mbr-white mt-3 mb-4\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".card-title, .card-box\"><b>Experimental Setup:</b></h3>\n          <div class=\"row card-box align-left\">\n            <div class=\"item features-without-image col-12\">\n              <div class=\"item-wrapper\">\n                <h4 class=\"mbr-section-subtitle mbr-fonts-style mb-3\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-5\">\n                  <b>Shipping options</b>\n                </h4>\n                <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">Experimental setup adalah tahap penelitian yang mendeskripsikan instrumen dan proses yang dilakukan pada eksperimen.\n<br>\n<br>Pada penulisan experimentak setup yang baik dilakukan dengan memperhatikan beberapa ketentuan :\n<br>1. Experimental setup ditulis dengan menggunakan kalimat aktif.\n<br>2. Penulisan experimentak setup menggunakan kalimat present tense.\n<br>3. Penulisan experimental setup harus menggunakan subjek + predikat + objek + keterangan.\n<br>\n<br>Pada bagian experimental setup elemen penting yang harus dijelaskan meliputi :\n<br><b>1. Dataset\n</b><br>Dataset adalah sejumlah sempel yang digunakan untuk menyelesaikan sebuah eksperiment. Pada bagian ini penjelasan dataset harus dilakukan secara eksplisit dan detail.\n<br>\n<br><b>2. Preprocessing\n<br></b>Preprocessing adalah tahap pada penulisan artikel ilmiah yang menjelaskan bagaimana sejumlah data diproses agar dapat digunakan pada proses training model.\n<br>\n<br>Pada tahap prepocessing dikenal beberapa istilah berikut :\n<br>a. Normalization/ Normalisasi\n<br>Normalisasi adalah tahap preprocessing dilakukan untuk membagi jumlah sempel secara proposional untuk meningkatkan peforma model.\n<br>Contoh Normalisasi : jumlah dataset training = 65 % diubah menjadi 80%\n<br>\n<br>b. Missing Value Handling\n<br>Missing Value Handling adalah tahap preprocessing yang dilakukan untuk menangani jumlah data yang tidak memiliki nilai intiger atau nilai kosong.\n<br>Contoh Missing Value Handling : Mengubah nilai NA(Not Available) data kosong menjadi nilai integer nol.\n<br>\n<br>c. Vectorization\n<br>Vectorization adalah tahap preprocessing yang digunakan untuk mengkonfersi nilai integer ke dalam nilai vector atau matriks. Proses vectorization diperlukan karena nilai integer data tidak dapat dimasukkan ke dalam proses training, agar data tersebut dapat disertakan dalam proses training maka format integer harus dikonfersikan ke dalam data yang memiliki format vektor.\n<br>Contoh vectorization : Mengubah integer [2, 2, 1] menjadi vektor [0.2  0.2  0.1].\n<br>\n<br>d. Fitur Extraction\n<br>Fitur Extraction adalah tahap preprocessing yang digunakan untuk meseleksi fitur - fitur penting pada sejumlah sempel hal ini dilakukan untuk mencari sebuah kesimpulan terhadap sebuah studi kasus.\n<br>Contoh fitur extraction :\n<br>- Jika terdapat nilai vector [0.2  0.2  0.1  0.3  0.5  0.6  0.7]\n<br>- Jika ekstrasi diukur mengharuskan nilai yang diekstrak &gt; 0.4 maka nilai vector baru [0.5  0.6  0.7].<br></p>\n              </div>\n            </div>\n            <div class=\"item features-without-image col-12\">\n              <div class=\"item-wrapper\">\n                <h4 class=\"mbr-section-subtitle mbr-fonts-style mb-3\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-5\">\n                  <b>Estimated delivery time</b>\n                </h4>\n                <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">Tahap preprocessing yang baik dapat digambarkan seperti yang dibawah ini :</p><p><img src=\"data:image/png;base64,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\" data-filename=\"image.png\" style=\"width: 100%; float: left;\"></p><p></p>\n              </div>\n            </div>\n            \n            <div class=\"item features-without-image col-12\">\n              <div class=\"item-wrapper\">\n                <h4 class=\"mbr-section-subtitle mbr-fonts-style mb-3\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-5\">\n                  <b>Shipment tracking</b>\n                </h4>\n                <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n                  <br>3. Propsed Method (Metode yang diajukan)<br>Proposed method adalah bagian pada artikel ilmiah yang digunakan untuk menjelaskan pendekatan atau teknik yang digunakan untuk menjelaskan masalah tertentu. Pada bagian proposed method sebuah artikel ilmiah yang baik mendeskripsikan atau menambahkan teknik yang digunakan pada penelitian tersebut dengan cara menuliskan notasi matematika pada algoritma yang digunakan.</p>\n              </div>\n            </div>\n          </div>\n          <div mbr-buttons mbr-theme-style=\"display-7\" class=\"mbr-section-btn\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\">\n            <a class=\"btn btn-primary\" href=\"https://mobiri.se\" data-app-placeholder=\"Type Text\">Start Now</a>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>",
+          "_cid": "tUpnqiwNhz",
+          "_anchor": "article07-g",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "overflow": "hidden"
+          },
+          "_name": "footer04",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"footer4\" group=\"Footers\" global once=\"footers\" mbr-class=\"{'mbr-reveal': reveal, 'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"checkbox\" title=\"Reveal effect\" name=\"reveal\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"../_images/background5.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#2e481a\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#2e481a\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div class=\"container\">\n        <div class=\"media-container-row align-center mbr-white\">\n            <div class=\"col-12\">\n                <p class=\"mbr-text mb-0 mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".media-container-row .mbr-text\" data-app-placeholder=\"Type Text\">\n                    © Copyright 2025 Mobirise - All Rights Reserved\n                </p>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "tU53ldJ4Il",
+          "_anchor": "footer04-d",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footers",
+          "_params": {}
+        }
+      ]
+    }
+  }
+}
